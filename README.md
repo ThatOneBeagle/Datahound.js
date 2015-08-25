@@ -3,6 +3,12 @@ A simple, no-frills input validation library written in JavaScript.
 
 ---
 
+## Requirements
+
+Datahound has no dependencies, but requires at least Firefox 3.5/Chrome 1/Internet Explorer 9/Safari 3.2/Opera 10.
+
+---
+
 ## Syntax
 
 
