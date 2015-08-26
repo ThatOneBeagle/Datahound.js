@@ -9,9 +9,9 @@ var Datahound = function () {
   var _this = this;
 
   this.validators = {
-    text: /[a-zA-Z]*/i,
+    text: /^[a-zA-Z]+$/i,
     email: /.+@.+[.]+.+/i,
-    numbers: /[0-9]*/i
+    numbers: /^[0-9]+$/i
   };
 
   this.functionOnValidate = function (element, success) {
