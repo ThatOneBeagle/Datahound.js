@@ -28,15 +28,18 @@ var Datahound = function () {
         return true;
     }
     var houndType = element.getAttribute("data-hound-type");
+    var dM = false;
+
     if(_this.validators.hasOwnProperty(houndType)) {
-      var doesMatch = element.value.match(_this.validators[houndType]);
-      if(doesMatch != null) {
-        _this.functionOnValidate(element, true);
-        return true;
+      if(typeof _this.validators[houndType] === "function") {
+        dM = _this.validators[houndType](element);
       } else {
-        _this.functionOnValidate(element, false);
-        return false;
+        dM = (element.value.match(_this.validators[houndType]) != null);
       }
+
+      _this.functionOnValidate(element, dM)
+      return dM;
+
     } else {
       console.log("Warning, type " + houndType + " is not defined.");
       return true;
@@ -71,7 +74,7 @@ var Datahound = function () {
     for (var i = 0; i < elements.length; i++) {
       allMatched = _this.validate(elements[i]) ? allMatched : false;
     }
-	
+
 	return allMatched;
   }
   this.bindValidationEvents = function () {
