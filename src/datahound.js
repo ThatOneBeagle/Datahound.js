@@ -1,8 +1,9 @@
 /*!
 * Datahound.js
 * Chris Thomson
-* Version 0.1b
+* Version 0.3b
 * MIT Licensed
+* https://github.com/ThatOneBeagle/Datahound.js
 */
 
 var Datahound = function () {
