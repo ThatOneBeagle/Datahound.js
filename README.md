@@ -48,7 +48,19 @@ If you want to add your own validation regexes, you can do so like this.
 
 `datahound.validators["yourValidator"] = \[a-zA-Z]*\i`
 
-For the time being, you can only validate based on regex. In the future, there may be an interface to take functions for validation.
+If you wish to do more complex validation, you can also use a function - for example:
+
+```javascript
+datahound.validators["yourFunction"] = function (element) {
+  if(element.value === "test") { 
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+
+If you use function-based validation, the DOM element that is being validated is passed as a lone parameter. It is required that your function returns either `true` (if the validation is successful) or `false` (if it is not).
 
 ---
 
